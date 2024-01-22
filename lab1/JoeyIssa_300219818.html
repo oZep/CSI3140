@@ -30,11 +30,67 @@
     </form>
     </center>
     <!--3.7-->
+    <h1>3.7</h1>
+    <h1>Search Form</h1>
 
+    <form id="searchForm">
+        <input type="search" id="searchField" name="searchField">
+        <button type="submit">Search</button>
+    </form>
 
+    <div id="searchResults"></div>
 
-    <!--3.9-->
-    <h1>3.9</h1>
+    <script>
+        const searchHistory = [
+            'January',
+            'June',
+            'Normal',
+            'Novice',
+            '364yhgg3f34dd23d'
+        ];
+        
+        const Form = document.getElementById('searchForm');
+        const Query = document.getElementById('searchField');
+        const ResultsContainer = document.getElementById('searchResults');
+        
+        Form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const searchTerm = Query.value.trim().toLowerCase();
+            const filteredResults = searchHistory.filter(entry => entry.toLowerCase().includes(searchTerm));
+            displayResults(filteredResults);
+        });
+        
+        function displayResults(results) {
+            ResultsContainer.innerHTML = '';
+            if (results.length === 0) {
+                ResultsContainer.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+            const resultList = document.createElement('ul');
+            results.forEach(result => {
+                const listItem = document.createElement('li');
+                listItem.textContent = result;
+                resultList.appendChild(listItem);
+            });
+            ResultsContainer.appendChild(resultList);
+        }
+    </script>
+
+    <!--3.8-->
+    <h1>3.8</h1>
+    <label for="weeks">Days of the Week: </label>
+    <input list="week" id="weeks" name="weeks" />
+    <datalis id="week">
+        <option value="Monday"></option>
+        <option value="Tuesday"></option>
+        <option value="Wednesday"></option>
+        <option value="Thursday"></option>
+        <option value="Friday"></option>
+        <option value="Saturday"></option>
+        <option value="Sunday"></option>
+    </datalist>
+    <!--3.9 & 3.10 & 3.11-->
+    <h1>3.9 and 3.10 and 3.11</h1>
     <h3><b>3.2.1 input Type color</b></h3>
     <p>The <b>color input type</b> (Fig. 3.1, lines 20–21) enables the user to enter a color. 
         At the time of this writing, most browsers render the color input type as a text 
