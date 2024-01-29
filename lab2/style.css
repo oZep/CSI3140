@@ -30,3 +30,18 @@ a:hover {
     height: 500px;
     width: 500px;
 }
+
+
+.multiCol {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule-style: solid;
+}
+
+
+@media (max-width: 480px) {
+    .multiCol {
+        column-count: 1;
+        column-rule-style: solid;
+    }
+}
