@@ -65,10 +65,21 @@ a:hover {
     column-rule-style: solid;
 }
 
+.multiRow {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-style:dotted;
+}
+
 
 @media (max-width: 480px) {
     .multiCol {
         column-count: 1;
         column-rule-style: solid;
+    }
+
+    .multiRow {
+        flex-direction: column;
     }
 }
