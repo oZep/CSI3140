@@ -10,3 +10,15 @@ a {
 a:hover {
     background-color: yellow;
 }
+
+nav-button {
+    border: 5px;
+    background-color: green;
+    text-color: red;
+}
+
+nav-button:hover {
+    border: 10px;
+    background-color: purple;
+    text-color: green;
+}
