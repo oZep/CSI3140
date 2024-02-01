@@ -1,0 +1,19 @@
+body {
+    text-size: 1.5em;
+    color: red;
+}
+
+
+h1 {
+    padding: 0.5em;
+    border-style: dashed;
+    border-width: 4px;
+    margin: 0.5em;
+}
+
+h2 {
+    padding: 0.5em;
+    border-style: dashed;
+    border-width: 4px;
+    margin: 0.5em;
+}
