@@ -1,8 +1,12 @@
 body {
-    text-size: 1.5em;
-    color: red;
+    font-size: 1.5em;
+    color: red;  
+    background-image: url('4.4.png'); /* Replace 'your-image-url.jpg' with the actual path to your image */
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: center bottom;
+    background-size: auto 50%; /* 50% of the height of the viewport */
 }
-
 
 h1 {
     padding: 0.5em;
