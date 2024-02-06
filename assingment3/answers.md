@@ -78,4 +78,35 @@ so the output will be
 ... 
 and the total is the summation of all X^2's and it is written to the HTML document
 
-## 8.4 
+## 7.18
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Mystery Script</title>
+      <script>
+         var row = 10;
+         var column;
+
+         while (row >= 1) {
+            column = 1;
+            document.writeln("<p>");
+
+            while (column <= 10) {
+               document.write(row % 2 == 1 ? "<" : ">"); <--- if row is odd then seperate it with a column
+               ++column;
+            } // end while
+
+            --row;
+            document.writeln("</p>");
+         } // end while
+      </script>
+   </head>
+   <body>
+   </body>
+</html>
+
+it generates a series of paragraphs where each paragraph contains a pattern of '<' and '>' characters. The pattern alternates between '<' and '>' for each row, creating an interesting visual effect. The final output will look like a staircase pattern of '<' and '>' characters.
+
