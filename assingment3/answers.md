@@ -110,3 +110,30 @@ and the total is the summation of all X^2's and it is written to the HTML docume
 
 it generates a series of paragraphs where each paragraph contains a pattern of '<' and '>' characters. The pattern alternates between '<' and '>' for each row, creating an interesting visual effect. The final output will look like a staircase pattern of '<' and '>' characters.
 
+## 8.4
+
+a) 
+For(x=100,x>=1,++x) 
+    document.writeln( x );
+
+b) The following code should print whether integer value is odd or even:
+switch ( value % 2 ) { 
+    case 0:
+        document.writeln( "Even integer" ); 
+    case 1:
+        document.writeln( "Odd integer" );
+}
+
+
+c) The following code should output the odd integers from 19 to 1:
+for ( x = 19; x >= 1; x += 2 ) 
+    document.writeln( x );
+
+
+d) The following code should output the even integers from 2 to 100:
+
+counter = 2; 
+do {
+    document.writeln( counter );
+    counter += 2;
+} While ( counter < 100 );
