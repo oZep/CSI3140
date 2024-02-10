@@ -1,0 +1,23 @@
+<script>
+    function calculate3numbers() {
+        var x1 = parseInt(prompt("Enter the first number:"));
+        var x2 = parseInt(prompt("Enter the second number:"));
+        var x3 = parseInt(prompt("Enter the third number:"));
+    
+        var sum = x1 + x2 + x3;
+        var average = sum / 3;
+        var product = x1 * x2 * x3;
+        var smallest = Math.min(x1, x2, x3);
+        var largest = Math.max(x1, x2, x3);
+    
+        var message;
+        message += "Sum: " + sum + "\n";
+        message += "Average: " + average + "\n";
+        message += "Product: " + product + "\n";
+        message += "Smallest: " + smallest + "\n";
+        message += "Largest: " + largest;
+        window.alert(message);
+    }
+    
+    calculate3numbers();
+    </script>
