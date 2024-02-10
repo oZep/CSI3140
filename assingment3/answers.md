@@ -165,3 +165,28 @@ do {
     counter += 2;
 } while (counter <= 100);
 
+
+## 8.5
+
+<!DOCTYPE html>
+<!-- Exercise 8.5: ex08_05.html -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mystery</title>
+    <script>
+      document.writeln("<table>");
+      for (var i = 1; i <= 7; i++) {
+        document.writeln("<tr>");
+        for (var j = 1; j <= 5; j++)
+          document.writeln("<td>(" + i + ", " + j + ")</td>");
+        document.writeln("</tr>");
+      } // end for
+      document.writeln("</table>");
+    </script>
+  </head>
+  <body />
+</html>
+
+the script creates and displays a 7x5 table where each cell contains the coords for where the 
+square is positioned within the table so like (1, 0), (1, 1) etc.
