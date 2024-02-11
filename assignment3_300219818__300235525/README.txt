@@ -1,0 +1,1 @@
+The answers to 6.18, 6.20, and 6.24 are in index.html. The answers for 7.9, 7.10, 7.18, 8.4, 8.5 are in answers.md
