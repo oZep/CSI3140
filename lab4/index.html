@@ -11,7 +11,42 @@
 <body>
 
     <h1>11.7</h1>
+    
 
     <h1>11.14</h1>
+    <script>
+        function countLetterOccurrences() {
+            var countIndex = 0
+            const inputText = document.getElementById('inputText').value;
+            let letterOccurrences = {};
+            for (let i = 0; i < inputText.length; i++) {
+                let letter = inputText[i].toLowerCase();
+                if (!(letter in letterOccurrences)) {
+                    letterOccurrences[letter] = 1;
+                } else {
+                    letterOccurrences[letter]++;
+                }
+            }
+
+            function generateTable(data) {
+                let tableHTML = 'Occurrences';
+
+                for (let letter in data) {
+                    tableHTML += `\n ${letter}:${data[letter]}`;
+                }
+                return tableHTML;
+        }
+
+            let resultTextArea = document.getElementById('resultTextArea');
+            resultTextArea.value = generateTable(letterOccurrences);
+
+        }
+    </script>
+    <input id='inputText' type="text">
+    <input type="Submit" value="Submit" onclick="countLetterOccurrences();">
+    <div>
+        Letter Occurrences:
+    </div>
+    <textarea id="resultTextArea" rows="26" cols="1"></textarea>
 
 </body>
