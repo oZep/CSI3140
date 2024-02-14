@@ -8,5 +8,5 @@ function cointoss(){
     }
     else tails++;
 
-    document.getElementById("heads").inne
+    document.getElementById("heads").innerHTML();
 }
