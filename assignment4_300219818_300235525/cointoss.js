@@ -1,12 +1,20 @@
 var heads = 0;
 var tails = 0;
 
-function cointoss(){
+function toss(){
 
-    if(Math.random() > 0.5){
+    if(flip() == true){
         heads++;
     }
     else tails++;
 
-    document.getElementById("heads").inne
+    document.getElementById("heads").innerText = heads;
+    document.getElementById("tails").innerText = tails
+}
+
+function flip(){
+    if(Math.random() > 0.5){
+        return true;
+    }
+    return false;
 }
