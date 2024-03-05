@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab5</title>
+</head>
+<body>
+    <h1>
+        12.6 Create a web page in which the user is allowed to select the pages background color and whether the page uses serif or sans serif fonts. Then change the body elements style attribute accordingly.
+    </h1>
+
+    <label for="font">Choose a font:</label>
+    <select id="font" name="font">
+        <option value="serif">Serif</option>
+        <option value="sans-serif">Sans-serif</option>
+    </select>
+    <label for="color">Choose a color:</label>
+    <input type="color" id="color" name="color" value="#000000">
+    <button type="button" onclick="changeStyle()">Change Style</button>
+    <script>
+        function changeStyle() {
+            let font = document.getElementById('font').value;
+            let color = document.getElementById('color').value;
+            document.body.style.fontFamily = font;
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
