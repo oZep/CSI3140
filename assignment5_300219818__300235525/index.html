@@ -1,47 +1,122 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Assignment5</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <h1>
-        12.3 Modify Fig. 12.13 to use a background color to highlight all the links in the page instead of displaying them in a box at the bottom.
+        12.3 Modify Fig. 12.13 to use a background color to highlight all the links in the page instead of displaying
+        them in a box at the bottom.
         <a href="12.3.html">Link</a>
     </h1>
 
     <h1>
-        14.5 (Text Shadow) Create a shadow on the phrase "<div class="canvasShadow">HTML5 Canvas</div>" with an offset-x of 2px, an offset-y of 5px, a blur of 6px and a text-shadow color gray.
+        14.5 (Text Shadow) Create a shadow on the phrase "<span class="canvasShadow">HTML5 Canvas</span>" with an offset-x
+        of 2px, an offset-y of 5px, a blur of 6px and a text-shadow color gray.
     </h1>
 
     <h1>
-        14.7 (Diaglonal Linear Gradient) Create a canvas with a width and height of 500. Create a diag- onal linear gradient using the colors of the rainbow—red, orange, yellow, green, blue, indigo, violet.
+        14.7 (Diaglonal Linear Gradient) Create a canvas with a width and height of 500. Create a diag- onal linear
+        gradient using the colors of the rainbow—red, orange, yellow, green, blue, indigo, violet.
     </h1>
-    <canvas id="drawpad" class="drawpad" width="500" height="250"></canvas>
-    <script>    
+    <canvas id="drawpad" class="drawpad" width="500" height="500"></canvas>
+    <script>
         var context = drawpad.getContext("2d");
-        var gradient = context.createLinearGradient(0,0, 500, 500);
-        gradient.addcolorstop(0, "red");
-        gradient.addcolorstop(0.165, "orange");
-        gradient.addcolorstop(0.333, "yellow");
-        gradient.addcolorstop(0.50, "green");
-        gradient.addcolorstop(0.666, "blue");
-        gradient.addcolorstop(0.833, "violet");
-        gradient.addcolorstop(1, "purple");
+        var gradient = context.createLinearGradient(0, 0, 500, 500);
+        gradient.addColorStop(0, "red");
+        gradient.addColorStop(0.17, "orange");
+        gradient.addColorStop(0.33, "yellow");
+        gradient.addColorStop(0.5, "green");
+        gradient.addColorStop(0.66, "blue");
+        gradient.addColorStop(0.83, "violet");
+        gradient.addColorStop(1, "purple");
         context.fillStyle = gradient;
-        context.fillRect(0,0,200,200)
-    </script>>
+        context.fillRect(0, 0, 500, 500);
+    </script>
 
     <h1>
-        14.8 (Vertical Linear Gradient) Draw a nonrectangular shape using lines, then add a vertical lin- ear gradient to the shape with three color stops.
+        14.8 (Vertical Linear Gradient) Draw a nonrectangular shape using lines, then add a vertical lin- ear gradient
+        to the shape with three color stops.
     </h1>
+    <canvas id="drawpad2" class="drawpad" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("drawpad2");
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+        context.moveTo(150, 50);
+        context.lineTo(444, 250);
+        context.lineTo(100, 377);
+        context.lineTo(50, 200);
+        context.closePath();
+        context.lineWidth = 2;
+        context.strokeStyle = "black";
+        context.stroke();
+
+        var gradient = context.createLinearGradient(0, 100, 0, 300);
+        gradient.addColorStop(0, "cyan");
+        gradient.addColorStop(1, "magenta");
+        context.fillStyle = gradient;
+        context.fill();
+    </script>
 
     <h1>
-        14.11 (Concentric Circles) Write a script that draws eight concentric circles. For each new circle, increase value of the radius by 5. Vary the circles’ colors.
+        14.11 (Concentric Circles) Write a script that draws eight concentric circles. For each new circle, increase
+        value of the radius by 5. Vary the circles’ colors.
     </h1>
+    <canvas id="drawpad3" class="drawpad" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("drawpad3");
+        var context = canvas.getContext("2d");
+        var colors = ["red", "orange", "yellow", "green", "blue", "purple", "cyan", "magenta"];
+        var radius = 50;
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+
+        for (var i = 0; i < 8; i++) {
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            context.lineWidth = 2;
+            context.strokeStyle = colors[i];
+            context.stroke();
+            radius += 5;
+        }
+    </script>
 
     <h1>
-        14.14 (Moving Circle) Crate a square canvas with a width and height of 500. Write a script that continuously moves a circle counterclockwise in a diamond pattern so that the circle touches the center of each edge of the canvas.
+        14.14 (Moving Circle) Crate a square canvas with a width and height of 500. Write a script that continuously
+        moves a circle counterclockwise in a diamond pattern so that the circle touches the center of each edge of the
+        canvas.
     </h1>
+    <canvas id="drawpad4" class="drawpad" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("drawpad4");
+        var context = canvas.getContext("2d");
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+        var radius = 20;
+        var angle = 0;
+        var speed = 1;
+    
+        function draw() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+    
+            var x = centerX + Math.cos(angle) * (canvas.width / 2 - radius);
+            var y = centerY + Math.sin(angle) * (canvas.height / 2 - radius);
+    
+            context.beginPath();
+            context.arc(x, y, radius, 0, 2 * Math.PI);
+            context.fill();
+    
+            angle -= speed * Math.PI / 180;
+    
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
 </body>
+
 </html>
