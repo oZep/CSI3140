@@ -42,16 +42,14 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Get canvas element and its context
         const canvas = document.getElementById("paintCanvas");
         const ctx = canvas.getContext("2d");
 
-        // Set initial drawing color and line thickness
         let currentColor = "black";
         let lineWidth = 1;
-        let cursorMode = "draw"; // Default mode is drawing
+        let cursorMode = "draw"; 
 
-        // Event listeners for color sliders
+
         const redSlider = document.getElementById("redSlider");
         const greenSlider = document.getElementById("greenSlider");
         const blueSlider = document.getElementById("blueSlider");
@@ -68,62 +66,58 @@
             updateColorSwatch();
         }
 
-        // Function to update color swatch
         function updateColorSwatch() {
             const colorSwatch = document.getElementById("colorSwatch");
             colorSwatch.style.backgroundColor = currentColor;
         }
 
-        // Event listener for line thickness slider
+    
         const thicknessSlider = document.getElementById("thicknessSlider");
         thicknessSlider.addEventListener("input", function() {
             lineWidth = thicknessSlider.value;
         });
 
-        // Event listener for cursor mode
         const cursorModeSelect = document.getElementById("cursorMode");
         cursorModeSelect.addEventListener("change", function() {
             cursorMode = cursorModeSelect.value;
         });
 
-        // Event listener for clearing the canvas
+        // clearing 
         const clearButton = document.getElementById("clearButton");
         clearButton.addEventListener("click", function() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         });
 
-        // Event listener for saving the drawing
+        // saving the drawing
         const saveButton = document.getElementById("saveButton");
         saveButton.addEventListener("click", function() {
-            const dataURL = canvas.toDataURL(); // Convert canvas to data URL
+            const dataURL = canvas.toDataURL(); 
             const link = document.createElement("a");
             link.href = dataURL;
             link.download = "drawing.png";
             link.click();
         });
 
-        // Variables to keep track of mouse state
+
         let isPainting = false;
         let lastX = 0;
         let lastY = 0;
 
-        // Event listeners for mouse events on the canvas
+
         canvas.addEventListener("mousedown", startPainting);
         canvas.addEventListener("mousemove", paint);
         canvas.addEventListener("mouseup", stopPainting);
         canvas.addEventListener("mouseleave", stopPainting);
 
-        // Function to start painting
+
         function startPainting(e) {
             isPainting = true;
             [lastX, lastY] = [e.offsetX, e.offsetY];
         }
 
-        // Function to paint on the canvas
         function paint(e) {
             if (!isPainting) return;
 
-            // Draw line from last point to current point
             ctx.beginPath();
             ctx.strokeStyle = currentColor;
             ctx.lineWidth = lineWidth;
@@ -132,11 +126,9 @@
             ctx.lineTo(e.offsetX, e.offsetY);
             ctx.stroke();
 
-            // Update last position to current position
             [lastX, lastY] = [e.offsetX, e.offsetY];
         }
 
-        // Function to stop painting
         function stopPainting() {
             isPainting = false;
         }
