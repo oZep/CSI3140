@@ -2,19 +2,35 @@
 <html>
 <head>
     <title>Assignment5</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <h1>
         12.3 Modify Fig. 12.13 to use a background color to highlight all the links in the page instead of displaying them in a box at the bottom.
+        <a href="12.3.html">Link</a>
     </h1>
 
     <h1>
-        14.5 (Text Shadow) Create a shadow on the phrase "HTML5 Canvas" with an offset-x of 2px, an offset-y of 5px, a blur of 6px and a text-shadow color gray.
+        14.5 (Text Shadow) Create a shadow on the phrase "<div class="canvasShadow">HTML5 Canvas</div>" with an offset-x of 2px, an offset-y of 5px, a blur of 6px and a text-shadow color gray.
     </h1>
 
     <h1>
         14.7 (Diaglonal Linear Gradient) Create a canvas with a width and height of 500. Create a diag- onal linear gradient using the colors of the rainbow—red, orange, yellow, green, blue, indigo, violet.
     </h1>
+    <canvas id="drawpad" class="drawpad" width="500" height="250"></canvas>
+    <script>    
+        var context = drawpad.getContext("2d");
+        var gradient = context.createLinearGradient(0,0, 500, 500);
+        gradient.addcolorstop(0, "red");
+        gradient.addcolorstop(0.165, "orange");
+        gradient.addcolorstop(0.333, "yellow");
+        gradient.addcolorstop(0.50, "green");
+        gradient.addcolorstop(0.666, "blue");
+        gradient.addcolorstop(0.833, "violet");
+        gradient.addcolorstop(1, "purple");
+        context.fillStyle = gradient;
+        context.fillRect(0,0,200,200)
+    </script>>
 
     <h1>
         14.8 (Vertical Linear Gradient) Draw a nonrectangular shape using lines, then add a vertical lin- ear gradient to the shape with three color stops.
