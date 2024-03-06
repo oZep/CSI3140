@@ -1,11 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>14.17</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting Application</title>
+    <style>
+        /* Add your CSS styles here */
+        canvas {
+            border: 1px solid #000;
+            cursor: crosshair;
+        }
+    </style>
 </head>
 <body>
     <h1>
         14.17 (Painting) Create a painting application that allows the you to create art by clicking and dragging the mouse across the canvas. Include options for changing the drawing color and line thickness. Provide red, green and blue sliders that allow you to select the RGB color. Include a color swatch below the three sliders so that as you move each slider, the color swatch shows you the cur- rent drawing color. Provide a line-width dialog with a single slider that controls the thickness of the line that you’ll draw. Also include options that allow you to turn the cursor into an eraser, to clear the screen and to save the current drawing. At any point, you should be able to clear the entire draw- ing from the canvas.
     </h1>
+    <h1>Painting Application</h1>
+    <canvas id="paintCanvas" width="800" height="600"></canvas>
+    <div>
+        <label for="redSlider">Red:</label>
+        <input type="range" id="redSlider" min="0" max="255" value="0">
+        <br>
+        <label for="greenSlider">Green:</label>
+        <input type="range" id="greenSlider" min="0" max="255" value="0">
+        <br>
+        <label for="blueSlider">Blue:</label>
+        <input type="range" id="blueSlider" min="0" max="255" value="0">
+        <br>
+        <label for="thicknessSlider">Line Thickness:</label>
+        <input type="range" id="thicknessSlider" min="1" max="20" value="1">
+        <br>
+        <button id="clearButton">Clear</button>
+        <button id="saveButton">Save</button>
+        <label for="cursorMode">Cursor Mode:</label>
+        <select id="cursorMode">
+            <option value="draw">Draw</option>
+            <option value="erase">Erase</option>
+        </select>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get canvas element and its context
+        const canvas = document.getElementById("paintCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Set initial drawing color and line thickness
+        let currentColor = "black";
+        let lineWidth = 1;
+        let cursorMode = "draw"; // Default mode is drawing
+
+        // Event listeners for color sliders
+        const redSlider = document.getElementById("redSlider");
+        const greenSlider = document.getElementById("greenSlider");
+        const blueSlider = document.getElementById("blueSlider");
+
+        redSlider.addEventListener("input", updateColor);
+        greenSlider.addEventListener("input", updateColor);
+        blueSlider.addEventListener("input", updateColor);
+
+        function updateColor() {
+            const redValue = redSlider.value;
+            const greenValue = greenSlider.value;
+            const blueValue = blueSlider.value;
+            currentColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+            updateColorSwatch();
+        }
+
+        // Function to update color swatch
+        function updateColorSwatch() {
+            const colorSwatch = document.getElementById("colorSwatch");
+            colorSwatch.style.backgroundColor = currentColor;
+        }
+
+        // Event listener for line thickness slider
+        const thicknessSlider = document.getElementById("thicknessSlider");
+        thicknessSlider.addEventListener("input", function() {
+            lineWidth = thicknessSlider.value;
+        });
+
+        // Event listener for cursor mode
+        const cursorModeSelect = document.getElementById("cursorMode");
+        cursorModeSelect.addEventListener("change", function() {
+            cursorMode = cursorModeSelect.value;
+        });
+
+        // Event listener for clearing the canvas
+        const clearButton = document.getElementById("clearButton");
+        clearButton.addEventListener("click", function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        // Event listener for saving the drawing
+        const saveButton = document.getElementById("saveButton");
+        saveButton.addEventListener("click", function() {
+            const dataURL = canvas.toDataURL(); // Convert canvas to data URL
+            const link = document.createElement("a");
+            link.href = dataURL;
+            link.download = "drawing.png";
+            link.click();
+        });
+
+        // Variables to keep track of mouse state
+        let isPainting = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        // Event listeners for mouse events on the canvas
+        canvas.addEventListener("mousedown", startPainting);
+        canvas.addEventListener("mousemove", paint);
+        canvas.addEventListener("mouseup", stopPainting);
+        canvas.addEventListener("mouseleave", stopPainting);
+
+        // Function to start painting
+        function startPainting(e) {
+            isPainting = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        // Function to paint on the canvas
+        function paint(e) {
+            if (!isPainting) return;
+
+            // Draw line from last point to current point
+            ctx.beginPath();
+            ctx.strokeStyle = currentColor;
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = "round";
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+
+            // Update last position to current position
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        // Function to stop painting
+        function stopPainting() {
+            isPainting = false;
+        }
+    });
+
+    </script>
 </body>
 </html>
