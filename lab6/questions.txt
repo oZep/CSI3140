@@ -8,3 +8,5 @@ size of 1 package and the following nutritional value per serving: 260 calories,
 milligrams of sodium, 36 grams of total carbohydrates, 2 grams of fiber, 15 grams of sugars and 5 grams of protein. Name this document nutrition.xml. Load the XML document into 
 your web browser. [Hint: Your markup should con- tain elements describing the product name, serving size/amount, calories, sodium, cholesterol, pro- teins, etc. Mark up each 
 nutrition fact/ingredient listed above.]
+
+15.9 (Nutrition Information XSL Style Sheet) Write an XSL style sheet for your solution to Exercise 15.7 that displays the nutritional facts in an HTML5 table.
