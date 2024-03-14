@@ -1,0 +1,10 @@
+15.9 (Nutrition Information XSL Style Sheet) Write an XSL style sheet for your solution to Exercise 15.7 that displays the nutritional facts in an HTML5 table.
+
+15.10 (Sorting XSLT Modification) Modify Fig. 15.21 (sorting.xsl) to sort by the number of pages rather than by chapter number. Save the modified document as sorting_byPage.xsl.
+
+
+15.7 (Nutrition Information XML Document) Create an XML document that marks up the nu- trition facts for a package of Grandma White’s cookies. A package of cookies has a serving 
+size of 1 package and the following nutritional value per serving: 260 calories, 100 fat calories, 11 grams of fat, 2 grams of saturated fat, 5 milligrams of cholesterol, 210 
+milligrams of sodium, 36 grams of total carbohydrates, 2 grams of fiber, 15 grams of sugars and 5 grams of protein. Name this document nutrition.xml. Load the XML document into 
+your web browser. [Hint: Your markup should con- tain elements describing the product name, serving size/amount, calories, sodium, cholesterol, pro- teins, etc. Mark up each 
+nutrition fact/ingredient listed above.]
