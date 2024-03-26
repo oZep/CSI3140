@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define complex types -->
+  <xs:complexType name="caloriesType">
+    <xs:sequence>
+      <xs:element name="total" type="xs:string"/>
+      <xs:element name="fat" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="fatType">
+    <xs:sequence>
+      <xs:element name="total" type="xs:string"/>
+      <xs:element name="saturated" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="carbohydratesType">
+    <xs:sequence>
+      <xs:element name="total" type="xs:string"/>
+      <xs:element name="fiber" type="xs:string"/>
+      <xs:element name="sugars" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define element structure -->
+  <xs:element name="product">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="serving_size" type="xs:string"/>
+        <xs:element name="calories" type="caloriesType"/>
+        <xs:element name="fat" type="fatType"/>
+        <xs:element name="cholesterol" type="xs:string"/>
+        <xs:element name="sodium" type="xs:string"/>
+        <xs:element name="carbohydrates" type="carbohydratesType"/>
+        <xs:element name="protein" type="xs:string"/>
+      </xs:sequence>
+      <!-- Define attribute for product name -->
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
