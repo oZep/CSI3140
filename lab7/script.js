@@ -76,15 +76,15 @@ function displayProductThumbnails(products, descriptions, fullImages, thumbnailI
         const row = document.createElement('tr');
         const description = descriptions.find(desc => desc.id === product.id);
         row.innerHTML = `
-            <td><img src="${thumbnailImages.find(img => img.id === product.id).filename}" alt="${product.title}" class="thumbnail" onmouseover="increaseSize(this)" onmouseout="resetSize(this)"></td>
+            <td><img src="${thumbnailImages.find(img => img.id === product.id).filename}" alt="${product.title}" class="thumbnail" onmouseover="this.src='${fullImages.find(img => img.id === product.id).filename}'" onmouseout="this.src='${thumbnailImages.find(img => img.id === product.id).filename}'"></td>
             <td>${product.title}</td>
             <td>${product.price}</td>
-            <td><button class="description-button" data-id="${product.id}" onclick="showDescription('${description ? description.description : ''}',${product.id})">Show Description</button></td>
+            <td><button class="description-button" data-id="${product.id}" onclick="showDescription(${description ? description.description : ''},${product.id})">Show Description</button></td>
         `;
         productBody.appendChild(row);
     });
 }
- 
+
 function showDescription(description, id) {
     const descriptionElement = document.querySelector(`[data-id="${id}"]`);
     console.log(description);
@@ -92,11 +92,3 @@ function showDescription(description, id) {
 }
 
 window.addEventListener('load', fetchProductData);
-
-function increaseSize(img) {    
-    img.style.width = '200px';
-}       
-
-function resetSize(img) {
-    img.style.width = '100px';
-}
