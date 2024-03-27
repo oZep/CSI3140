@@ -1,15 +1,15 @@
 [
     {
       "id": 1,
-      "filename": "product1_thumbnail.jpg"
+      "filename": "product1_full.jpg"
     },
     {
       "id": 2,
-      "filename": "product2_thumbnail.jpg"
+      "filename": "product2_full.jpg"
     },
     {
       "id": 3,
-      "filename": "product3_thumbnail.jpg"
+      "filename": "product3_full.jpg"
     }
   ]
   
