@@ -2,19 +2,19 @@
     {
       "id": 1,
       "title": "Product 1",
-      "thumbnail": "product1_thumbnail.jpg",
+      "thumbnail": "./product1_full.jpg",
       "price": "$19.99"
     },
     {
       "id": 2,
       "title": "Product 2",
-      "thumbnail": "product2_thumbnail.jpg",
+      "thumbnail": "./product2_full.jpg",
       "price": "$24.99"
     },
     {
       "id": 3,
       "title": "Product 3",
-      "thumbnail": "product3_thumbnail.jpg",
+      "thumbnail": "./product3_full.jpg",
       "price": "$29.99"
     }
   ]
