@@ -79,7 +79,7 @@ function displayProductThumbnails(products, descriptions, fullImages, thumbnailI
             <td><img src="${thumbnailImages.find(img => img.id === product.id).filename}" alt="${product.title}" class="thumbnail" onmouseover="this.src='${fullImages.find(img => img.id === product.id).filename}'" onmouseout="this.src='${thumbnailImages.find(img => img.id === product.id).filename}'"></td>
             <td>${product.title}</td>
             <td>${product.price}</td>
-            <td><button class="description-button" data-id="${product.id}" onclick="showDescription(${description ? description.description : ''},${product.id})">Show Description</button></td>
+            <td><button class="description-button" data-id="${product.id}" onclick="showDescription('${description ? description.description : ''}',${product.id})">Show Description</button></td>
         `;
         productBody.appendChild(row);
     });
